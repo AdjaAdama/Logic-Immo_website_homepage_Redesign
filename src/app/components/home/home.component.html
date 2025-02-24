@@ -1,18 +1,210 @@
-<div class="flex h-screen">
-    <!-- Menu de navigation (Sidenav) -->
-    <mat-sidenav-container class="flex w-full">
-      <mat-sidenav mode="side" opened class="bg-gray-800 text-white w-64">
-        <mat-nav-list>
-          <a mat-list-item routerLink="/home" routerLinkActive="active">Home</a>
-          <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
-          <a mat-list-item routerLink="/services" routerLinkActive="active">Services</a>
-          <a mat-list-item routerLink="/contact" routerLinkActive="active">Contact</a>
-        </mat-nav-list>
-      </mat-sidenav>
-  
-      <!-- Contenu principal -->
-      <mat-sidenav-content class="flex-grow p-6 bg-gray-100">
-        <router-outlet></router-outlet>
-      </mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>
+<div class="main-container">
+  <!-- Header horizontal -->
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo">
+        <a routerLink="/home" >
+          <img src="assets/LogicImmoLogo.png" alt="Logic Immo Logo" class="logo-img">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a routerLink="/acheter" routerLinkActive="active">Acheter</a>
+        <a routerLink="/louer" routerLinkActive="active">Louer</a>
+        <a routerLink="/vendre" routerLinkActive="active">Vendre</a>
+        <a routerLink="/neuf" routerLinkActive="active">Neuf</a>
+        <a routerLink="/luxe" routerLinkActive="active">Luxe</a>
+        <a routerLink="/annuaire" routerLinkActive="active">Annuaire</a>
+        <a routerLink="/actualites" routerLinkActive="active">Actualités</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Section Hero -->
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <h1 class="hero-title">Trouvez votre futur bien immobilier</h1>
+      <p class="hero-subtitle">Acheter, louer ou estimer, tout est ici.</p>
+    </div>
+  </section>
+
+  <!-- Zone de recherche -->
+  <section class="search-container">
+    <nav class="tabs">
+      <button class="tab active">
+        <i class="fas fa-home"></i>
+        <span>Acheter</span>
+      </button>
+      <button class="tab">
+        <i class="fas fa-key"></i>
+        <span>Louer</span>
+      </button>
+      <button class="tab">
+        <i class="fas fa-calculator"></i>
+        <span>Estimer</span>
+      </button>
+    </nav>
+    <div class="search-form">
+      <input type="text" placeholder="Ville, Code Postal..." class="input-field">
+      <select class="input-field">
+        <option>Acheter</option>
+        <option>Louer</option>
+      </select>
+      <button class="search-button">Rechercher</button>
+    </div>
+  </section>
+
+  <!-- Section infos (agent & courtier) -->
+  <section class="info-section">
+    <div class="info-card agent-card">
+      <div class="info-content">
+        <h2>Trouver un agent à côté de chez vous</h2>
+        <p>
+          Que vous achetiez ou vendiez, bénéficiez de l'expertise d'un agent immobilier pour une transaction transparente et efficace du début à la fin.
+        </p>
+        <button class="info-button">Trouver un pro</button>
+      </div>
+      <div class="info-image">
+        <img src="assets/agent1.jpg" alt="Trouver un agent">
+      </div>
+    </div>
+    <div class="info-card courtier-card">
+      <div class="info-image">
+        <img src="assets/courtier.jpg" alt="Wily courtier">
+      </div>
+      <div class="info-content">
+        <h2>Wily, le courtier de votre future assurance de prêt</h2>
+        <p>
+          Trouvez la solution adaptée à votre profil et à vos projets : prêts immobiliers, professionnels, à la consommation, regroupements de crédits, etc...
+        </p>
+        <button class="info-button">Mon devis gratuit</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section des biens -->
+  <section class="properties-section">
+    <h2>Nos meilleurs partenaires pour vos projets</h2>
+    <div class="property-grid">
+      <div class="property-card" *ngFor="let property of properties; trackBy: trackProperty">
+        <img [src]="property.image" [alt]="property.title" class="property-image">
+        <h3 class="property-title">{{ property.title }}</h3>
+        <p class="property-price">{{ property.price }} €</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Télécharger l'application -->
+  <section class="download-section">
+    <div class="download-container">
+      <div class="download-image">
+        <img src="assets/telephone.jpg" alt="Téléchargez l'application Logic-Immo">
+      </div>
+      <div class="download-content">
+        <h2>Télécharger l'application Logic-Immo</h2>
+        <p>
+          Découvrez votre bien idéal à la location ou à la vente sans effort. Accédez à toutes les annonces immobilières à tout moment grâce à notre application gratuite.
+        </p>
+        <div class="download-links">
+          <a href="#" class="app-link">
+            <img src="assets/appstore.jpg" alt="Télécharger sur App Store">
+          </a>
+          <a href="#" class="app-link">
+            <img src="assets/googleplay.png" alt="Télécharger sur Google Play">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section onglets et sous-liens -->
+  <section class="tabs-section">
+    <div class="tabs-wrapper">
+      <div class="tab-item">Par localités</div>
+      <div class="tab-item">Par types de bien</div>
+      <div class="tab-item">Par commodités</div>
+    </div>
+    <hr class="tabs-divider">
+    <div class="sub-links-wrapper">
+      <ul class="sub-links">
+        <li><a href="#">Immobilier par régions</a></li>
+        <li><a href="#">Immobilier par départements</a></li>
+        <li><a href="#">Immobilier par villes</a></li>
+        <li><a href="#">Immobilier par quartiers</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section Footer links -->
+  <section class="footer-links-section">
+    <div class="footer-column">
+      <h3>A propos</h3>
+      <ul>
+        <li><a href="#">Qui sommes-nous ?</a></li>
+        <li><a href="#">Contacter le service client</a></li>
+        <li><a href="#">Nous rejoindre</a></li>
+        <li><a href="#">Presse</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Service pro</h3>
+      <ul>
+        <li><a href="#">Tous nos services pro</a></li>
+        <li><a href="#">Accès client</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Informations légales</h3>
+      <ul>
+        <li><a href="#">Conditions générales d'utilisation</a></li>
+        <li><a href="#">Politique Générale de Protection des Données</a></li>
+        <li><a href="#">Charte éditeur</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Apps</h3>
+      <ul class="app-links">
+        <li><a href="#"><img src="assets/appstore.jpg" alt="App Store"></a></li>
+        <li><a href="#"><img src="assets/googleplay.png" alt="Google Play"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Nouvelle section Logos -->
+  <section class="logos-section">
+    <hr class="logos-divider">
+    <div class="aviv-group">
+      <img src="assets/AvivGroupLogo.jpg" alt="AvivGroupLogo">
+    </div>
+    <div class="logos-row">
+      <img src="assets/ImmoWeltLogo.png" alt="ImmoWeltLogo">
+      <img src="assets/logo_brand_immonet.png" alt="ImmoNetLogo">
+      <img src="assets/ImmoWebLogo.png" alt="ImmoWebLogo">
+      <img src="assets/SeLogerLogo.jpg" alt="SeLogerLogo">
+      <img src="assets/MeilleursAgentsLogo.png" alt="MeilleusAgentsLogo">
+      <img src="assets/LogicImmoLogo.png" alt="LogicImmoLogo">
+      <img src="assets/Yad2Logo.jpg" alt="Yad2Logo">
+    </div>
+    <hr class="logos-divider">
+  </section>
+
+    <!-- Dernière section Footer final -->
+    <section class="final-section">
+      <div class="final-content">
+        <div class="final-left">
+          <ul class="final-links">
+            <li><a href="#">Parametres cookies</a></li>
+            <li><a href="#">Fond de commerce a vendre</a></li>
+            <li><a href="#">Fonctionnement de notre site</a></li>
+          </ul>
+          <p class="final-copy">
+            Digital Classifieds France SAS © 2025 - Tous droits réservés
+          </p>
+        </div>
+        <div class="final-right">
+          <a href="#"><img src="assets/facebookicone.png" alt="Facebook Icon"></a>
+          <a href="#"><img src="assets/Twitter-X-Logo.png" alt="Twitter Icon"></a>
+        </div>
+      </div>
+    </section>
+</div>
+ 
