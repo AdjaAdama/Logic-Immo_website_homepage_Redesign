@@ -1,53 +1,109 @@
+/* Réinitialisation globale */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
 /* Styles globaux du composant */
 :host {
   display: block;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
 }
 
 /* Container principal */
 .main-container {
   display: block;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+/* Appliquer un arrondi à toutes les images sauf celles dans .logos-section */
+img {
+  border-radius: 8px;
+}
+.logos-section img {
+  border-radius: 0;
 }
 
 /* Header horizontal */
 .main-header {
+  width: 100%;
+  margin: 0;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 0.5rem 2rem;
+  box-shadow: none;
+  padding: 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  
+
   .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
   .logo a {
     display: inline-block;
   }
-  
+
   .logo a .logo-img {
     max-height: 50px;
     width: auto;
   }
-  
+
   .nav-menu {
     display: flex;
     gap: 1.5rem;
-    
+    margin-left: 1rem; /* espace entre logo et menu */
     a {
       text-decoration: none;
       color: #333;
       font-size: 1rem;
       padding: 0.5rem;
       transition: color 0.3s;
-      
       &.active,
       &:hover {
         color: #1e88e5;
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .estimate-button {
+      background-color: #1e88e5;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: rgba(30,136,229,0.7);
+      }
+    }
+    .favorites-link {
+      color: #1e88e5;
+      font-size: 1.25rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      &:hover {
+        color: #1565c0;
       }
     }
   }
@@ -56,42 +112,43 @@
 /* Section Hero */
 .hero-section {
   position: relative;
-  height: 400px;
-  background: url('../../../assets/header.jpg') no-repeat center center/cover;
+  height: 300px; /* ajustez la hauteur si besoin */
+  background: url('../../../assets/paysage.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Pas d'overlay dans la section Hero */
 .hero-overlay {
-  background-color: rgba(0,0,0,0.5);
-  padding: 2rem;
-  text-align: center;
-  border-radius: 8px;
+  display: none;
 }
 
-.hero-title {
-  font-size: 2.5rem;
-  color: #fff;
-  margin: 0;
+/* Titre au-dessus de la zone de recherche */
+.search-header {
+  margin: 0 2rem 1rem 2rem;
+  text-align: left;
+  h3 {
+    font-size: 1.75rem;
+    color: #fff; /* texte en blanc */
+    margin: 0;
+  }
 }
 
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: #ddd;
-  margin-top: 0.5rem;
-}
-
-/* Zone de recherche */
+/* Zone de recherche chevauchant le bas du hero */
 .search-container {
+  padding-top: -120px;
   position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: -40px auto 2rem auto;
+  z-index: 1;
+  max-width: 700px;
+  // margin: -130px auto 2rem auto; /* ajustez cette valeur pour positionner la zone */
   background-color: #fff;
-  padding: 1rem;
+  padding: 2rem 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-height: 150px;
+  margin: calc(-0.9 * 150px) 2rem 2rem 17rem;
 }
 
 .tabs {
@@ -109,7 +166,6 @@
   padding: 0.5rem 1rem;
   border-bottom: 2px solid transparent;
   transition: border-color 0.3s;
-  
   &.active,
   &:hover {
     border-color: #1e88e5;
@@ -130,6 +186,7 @@
   font-size: 1rem;
 }
 
+/* Bouton de recherche arrondi */
 .search-button {
   padding: 0.75rem 1.5rem;
   background-color: #1e88e5;
@@ -139,9 +196,43 @@
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
-  
   &:hover {
     background-color: rgba(30,136,229,0.7);
+  }
+}
+
+/* Section Nos services dédiés */
+.dedicated-services {
+  max-width: 1200px;
+  margin: 1rem auto;
+  text-align: left;
+  padding: 0 2rem;
+  h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  .services-buttons {
+    display: flex;
+    flex-wrap: nowrap; /* boutons sur la même ligne */
+    gap: 1rem;
+    margin-left: 0;
+    .service-button {
+      background-color: #fff;  /* fond blanc */
+      color: #333;            /* texte plus foncé */
+      border: 1px solid #888; /* bordure plus foncée */
+      border-radius: 30px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
   }
 }
 
@@ -160,7 +251,7 @@
   justify-content: space-between;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: none;
   overflow: hidden;
   padding: 2rem;
 }
@@ -170,25 +261,22 @@
 }
 
 .courtier-card {
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 .info-content {
   flex: 1;
   padding: 1rem;
-  
   h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
     color: #333;
   }
-  
   p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
     color: #555;
   }
-  
   .info-button {
     padding: 0.75rem 1.5rem;
     background-color: #1e88e5;
@@ -198,7 +286,6 @@
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s;
-    
     &:hover {
       background-color: rgba(30,136,229,0.7);
     }
@@ -210,11 +297,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  
   img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
   }
 }
 
@@ -237,12 +323,11 @@
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: none;
   transition: box-shadow 0.3s;
   text-align: center;
-  
   &:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    box-shadow: none;
   }
 }
 
@@ -283,11 +368,10 @@
   background-color: #1e88e5;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  
   img {
     max-width: 100%;
     height: auto;
@@ -297,7 +381,6 @@
 
 .download-content {
   flex: 1;
-  
   h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
@@ -327,13 +410,11 @@
   margin: 2rem auto;
   padding: 2rem 1rem;
   text-align: center;
-  
   .tabs-wrapper {
     display: flex;
     justify-content: center;
     gap: 1rem;
   }
-  
   .tab-item {
     flex: 1;
     min-width: 180px;
@@ -342,39 +423,32 @@
     border-radius: 30px;
     transition: background-color 0.3s;
     cursor: pointer;
-    
     &:hover {
       background-color: rgba(30,136,229,0.2);
     }
-    
     font-size: 1.1rem;
     font-weight: bold;
   }
-  
   .tabs-divider {
     border: none;
     border-top: 1px solid #ddd;
     margin: 1rem 0;
   }
-  
   .sub-links-wrapper {
     display: flex;
     justify-content: center;
   }
-  
   .sub-links {
     display: flex;
     gap: 2rem;
     list-style: none;
     padding: 0;
     margin: 0;
-    
     li a {
       text-decoration: none;
       color: #1e88e5;
       font-size: 1rem;
       transition: color 0.3s;
-      
       &:hover {
         color: #1565c0;
       }
@@ -391,38 +465,31 @@
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
-  
   .footer-column {
     flex: 1;
     min-width: 200px;
-    
     h3 {
       font-size: 1.25rem;
       color: #333;
       margin-bottom: 1rem;
     }
-    
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      
       li {
         margin-bottom: 0.5rem;
-        
         a {
           text-decoration: none;
           color: #1e88e5;
           transition: color 0.3s;
-          
           &:hover {
             color: #1565c0;
           }
         }
       }
     }
-    
-    /* Ajustement pour les images de la colonne Apps */
+    /* Pour la colonne Apps */
     &.apps-column,
     ul.app-links {
       li {
@@ -443,28 +510,23 @@
   margin: 2rem auto;
   padding: 2rem 1rem;
   text-align: center;
-  
   .logos-divider {
     border: none;
     border-top: 1px solid #ddd;
     margin: 1rem 0;
   }
-  
   .aviv-group {
     margin-bottom: 1rem;
-    
     img {
       max-width: 200px;
       height: auto;
     }
   }
-  
   .logos-row {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
-    
     img {
       max-width: 120px;
       height: auto;
@@ -472,57 +534,48 @@
   }
 }
 
-/* Dernière section Footer final */
+/* Section Footer final */
 .final-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 1rem;
   border-top: 1px solid #ddd;
-  
   .final-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
   }
-  
   .final-left {
     display: flex;
     flex-direction: column;
   }
-  
   .final-links {
     display: flex;
     gap: 2rem;
     list-style: none;
     padding: 0;
     margin: 0 0 0.5rem 0;
-    
     li a {
       text-decoration: none;
       color: #1e88e5;
       font-size: 1.125rem;
       transition: color 0.3s;
-      
       &:hover {
         color: #1565c0;
       }
     }
   }
-  
   .final-copy {
     font-size: 0.75rem;
     color: #666;
     margin: 0;
   }
-  
   .final-right {
     display: flex;
     gap: 1rem;
-    
     a {
       display: inline-block;
-      
       img {
         width: 30px;
         height: auto;
@@ -538,52 +591,41 @@
     justify-content: center;
     gap: 1rem;
   }
-  
   .hero-section {
     height: 300px;
   }
-  
   .hero-title {
     font-size: 2rem;
   }
-  
   .hero-subtitle {
     font-size: 1rem;
   }
-  
   .search-container {
     margin: -30px auto 1rem auto;
     padding: 0.75rem;
   }
-  
   .info-card {
     flex-direction: column;
     text-align: center;
   }
-  
   .info-image {
     margin-top: 1rem;
   }
-  
   .download-container {
     flex-direction: column;
     text-align: center;
   }
-  
   .footer-links-section {
     flex-direction: column;
     align-items: center;
   }
-  
   .logos-section {
     padding: 1rem;
   }
-  
   .final-section {
     flex-direction: column;
     text-align: center;
   }
-  
   .final-right {
     margin-top: 1rem;
   }

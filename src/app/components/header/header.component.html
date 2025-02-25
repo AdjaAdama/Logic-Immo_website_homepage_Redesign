@@ -1,10 +1,26 @@
-<header class="header">
-    <nav>
-      <ul>
-        <li><a href="#">Logo</a></li>
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header class="main-header">
+  <div class="header-container">
+    <!-- Partie gauche du header : logo + menu -->
+    <div class="header-left">
+      <div class="logo">
+        <a routerLink="/home">
+          <img src="assets/LogicImmoLogo.png" alt="Logic Immo Logo" class="logo-img">
+        </a>
+      </div>
+      <nav class="nav-menu">
+        <a routerLink="/acheter" routerLinkActive="active">Acheter</a>
+        <a routerLink="/louer" routerLinkActive="active">Louer</a>
+        <a routerLink="/vendre" routerLinkActive="active">Vendre</a>
+        <a routerLink="/neuf" routerLinkActive="active">Neuf</a>
+        <a routerLink="/luxe" routerLinkActive="active">Luxe</a>
+        <a routerLink="/annuaire" routerLinkActive="active">Annuaire</a>
+        <a routerLink="/actualites" routerLinkActive="active">Actualités</a>
+      </nav>
+    </div>
+    <!-- Partie droite du header : bouton "Estimer mon bien" + icône cœur -->
+    <div class="header-right">
+      <button class="estimate-button">Estimer mon bien</button>
+      <a href="#" class="favorites-link"><i class="fas fa-heart"></i></a>
+    </div>
+  </div>
+</header>

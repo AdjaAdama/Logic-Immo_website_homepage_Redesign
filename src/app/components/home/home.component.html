@@ -1,31 +1,14 @@
 <div class="main-container">
   <!-- Header horizontal -->
-  <header class="main-header">
-    <div class="header-container">
-      <div class="logo">
-        <a routerLink="/home" >
-          <img src="assets/LogicImmoLogo.png" alt="Logic Immo Logo" class="logo-img">
-        </a>
-      </div>
-      <nav class="nav-menu">
-        <a routerLink="/acheter" routerLinkActive="active">Acheter</a>
-        <a routerLink="/louer" routerLinkActive="active">Louer</a>
-        <a routerLink="/vendre" routerLinkActive="active">Vendre</a>
-        <a routerLink="/neuf" routerLinkActive="active">Neuf</a>
-        <a routerLink="/luxe" routerLinkActive="active">Luxe</a>
-        <a routerLink="/annuaire" routerLinkActive="active">Annuaire</a>
-        <a routerLink="/actualites" routerLinkActive="active">Actualités</a>
-      </nav>
-    </div>
-  </header>
+  <app-header></app-header>
 
-  <!-- Section Hero -->
-  <section class="hero-section">
-    <div class="hero-overlay">
-      <h1 class="hero-title">Trouvez votre futur bien immobilier</h1>
-      <p class="hero-subtitle">Acheter, louer ou estimer, tout est ici.</p>
-    </div>
-  </section>
+  <!-- Section Hero (seulement l'image de fond) -->
+  <section class="hero-section"></section>
+
+  <!-- Titre au-dessus de la zone de recherche -->
+  <div class="search-header">
+    <h3>Acheter et Louer</h3>
+  </div>
 
   <!-- Zone de recherche -->
   <section class="search-container">
@@ -44,12 +27,24 @@
       </button>
     </nav>
     <div class="search-form">
-      <input type="text" placeholder="Ville, Code Postal..." class="input-field">
-      <select class="input-field">
-        <option>Acheter</option>
-        <option>Louer</option>
-      </select>
-      <button class="search-button">Rechercher</button>
+      <input type="text" placeholder="Saisir le lieu ou le code Postal..." class="input-field">
+    </div>
+  </section>
+
+  <!-- Section Nos services dédiés -->
+  <section class="dedicated-services">
+    <div>
+      <h3>Nos services dédiés :</h3>
+    </div>
+    <div class="services-buttons">
+      <button class="service-button">
+        <i class="fas fa-calculator"></i>
+        <span>Estimer votre bien</span>
+      </button>
+      <button class="service-button">
+        <i class="fas fa-building"></i>
+        <span>Acheter dans le neuf</span>
+      </button>
     </div>
   </section>
 
@@ -169,7 +164,7 @@
     </div>
   </section>
 
-  <!-- Nouvelle section Logos -->
+  <!-- Section Logos -->
   <section class="logos-section">
     <hr class="logos-divider">
     <div class="aviv-group">
@@ -187,24 +182,23 @@
     <hr class="logos-divider">
   </section>
 
-    <!-- Dernière section Footer final -->
-    <section class="final-section">
-      <div class="final-content">
-        <div class="final-left">
-          <ul class="final-links">
-            <li><a href="#">Parametres cookies</a></li>
-            <li><a href="#">Fond de commerce a vendre</a></li>
-            <li><a href="#">Fonctionnement de notre site</a></li>
-          </ul>
-          <p class="final-copy">
-            Digital Classifieds France SAS © 2025 - Tous droits réservés
-          </p>
-        </div>
-        <div class="final-right">
-          <a href="#"><img src="assets/facebookicone.png" alt="Facebook Icon"></a>
-          <a href="#"><img src="assets/Twitter-X-Logo.png" alt="Twitter Icon"></a>
-        </div>
+  <!-- Section Footer final -->
+  <section class="final-section">
+    <div class="final-content">
+      <div class="final-left">
+        <ul class="final-links">
+          <li><a href="#">Parametres cookies</a></li>
+          <li><a href="#">Fond de commerce a vendre</a></li>
+          <li><a href="#">Fonctionnement de notre site</a></li>
+        </ul>
+        <p class="final-copy">
+          Digital Classifieds France SAS © 2025 - Tous droits réservés
+        </p>
       </div>
-    </section>
+      <div class="final-right">
+        <a href="#"><img src="assets/facebookicone.png" alt="Facebook Icon"></a>
+        <a href="#"><img src="assets/Twitter-X-Logo.png" alt="Twitter Icon"></a>
+      </div>
+    </div>
+  </section>
 </div>
- 
