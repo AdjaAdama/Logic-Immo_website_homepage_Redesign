@@ -112,11 +112,24 @@ img {
 /* Section Hero */
 .hero-section {
   position: relative;
-  height: 300px; /* ajustez la hauteur si besoin */
+  height: 300px; /* ou la hauteur souhaitée */
   background: url('../../../assets/paysage.jpg') no-repeat center center/cover;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hero-text {
+  position: absolute;
+  top: 100px;
+  // bottom: 20px; 
+  left: 280px;   
+  
+  h3 {
+    font-size: 1.75rem;
+    color: #fff; /* Texte en blanc */
+    margin: 0;
+  }
 }
 
 /* Pas d'overlay dans la section Hero */
@@ -128,6 +141,7 @@ img {
 .search-header {
   margin: 0 2rem 1rem 2rem;
   text-align: left;
+
   h3 {
     font-size: 1.75rem;
     color: #fff; /* texte en blanc */
@@ -147,8 +161,27 @@ img {
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  min-height: 150px;
+  min-height: 105px;
   margin: calc(-0.9 * 150px) 2rem 2rem 17rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  .search-form {
+    position: relative; /* Pour que l'icône en position absolue se positionne par rapport à ce conteneur */
+    
+    .search-icon {
+      position: absolute;
+      top: 50%;                // Positionne l'icône à 50% de la hauteur du conteneur
+      left: 12px;              // Ajuste l'espacement horizontal
+      transform: translateY(-50%);  // Centre verticalement l'icône
+      color: #777;
+      pointer-events: none;
+    }
+    
+    .input-field {
+      padding-left: 2.5rem;  // Laisse suffisamment d'espace pour l'icône
+    }
+  }
+  
 }
 
 .tabs {
@@ -201,39 +234,58 @@ img {
   }
 }
 
+
 /* Section Nos services dédiés */
 .dedicated-services {
+  display: flex;
   max-width: 1200px;
   margin: 1rem auto;
-  text-align: left;
   padding: 0 2rem;
-  h3 {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-  .services-buttons {
+  text-align: left;
+  
+  .services-header {
     display: flex;
-    flex-wrap: nowrap; /* boutons sur la même ligne */
+    align-items: center;
+    justify-content: space-between;
     gap: 1rem;
-    margin-left: 0;
-    .service-button {
-      background-color: #fff;  /* fond blanc */
-      color: #333;            /* texte plus foncé */
-      border: 1px solid #888; /* bordure plus foncée */
-      border-radius: 30px;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      cursor: pointer;
+    
+    h5 {
+      font-size: 1.5rem;
+      color: #333;
+      margin: 0;  // suppression des marges pour un alignement précis
+    }
+    
+    .services-buttons {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: background-color 0.3s;
-      &:hover {
-        background-color: #f0f0f0;
-      }
+      gap: 1rem;
     }
   }
+  
+  .service-button {
+    background-color: #fff;  
+    color: #333;            
+    border: 1px solid #888; 
+    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+    
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
+
+
+
+.box {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border: 1px solid #ccc;
 }
 
 /* Section infos */
@@ -300,14 +352,14 @@ img {
   img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 20px;
   }
 }
 
 /* Section des biens */
 .properties-section {
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 0 1rem;
   text-align: center;
 }
@@ -317,7 +369,9 @@ img {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   justify-content: center;
+  justify-items: center; // centre chaque élément dans sa cellule
 }
+
 
 .property-card {
   background-color: #fff;
@@ -333,7 +387,7 @@ img {
 
 .property-image {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: cover;
 }
 
@@ -404,185 +458,50 @@ img {
   }
 }
 
-/* Section onglets et sous-liens */
-.tabs-section {
+/* Section Logic-immo, c'est aussi... */
+.extra-section {
   max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem 1rem;
   text-align: center;
-  .tabs-wrapper {
+
+  h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  .extra-cards {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-  }
-  .tab-item {
-    flex: 1;
-    min-width: 180px;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid #eee;
-    border-radius: 30px;
-    transition: background-color 0.3s;
-    cursor: pointer;
-    &:hover {
-      background-color: rgba(30,136,229,0.2);
-    }
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  .tabs-divider {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 1rem 0;
-  }
-  .sub-links-wrapper {
-    display: flex;
-    justify-content: center;
-  }
-  .sub-links {
-    display: flex;
     gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    li a {
-      text-decoration: none;
-      color: #1e88e5;
-      font-size: 1rem;
-      transition: color 0.3s;
+    
+    .extra-card {
+      background-color: #f7f7f7; // blanc grisâtre
+      border-radius: 8px;
+      padding: 1rem;
+      width: 500px;  // largeur augmentée
+      height: 60px; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      
       &:hover {
-        color: #1565c0;
+        transform: translateY(-5px);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
       }
-    }
-  }
-}
-
-/* Section Footer links */
-.footer-links-section {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-  .footer-column {
-    flex: 1;
-    min-width: 200px;
-    h3 {
-      font-size: 1.25rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      li {
-        margin-bottom: 0.5rem;
-        a {
-          text-decoration: none;
-          color: #1e88e5;
-          transition: color 0.3s;
-          &:hover {
-            color: #1565c0;
-          }
-        }
-      }
-    }
-    /* Pour la colonne Apps */
-    &.apps-column,
-    ul.app-links {
-      li {
-        a {
-          img {
-            max-width: 150px;
-            height: auto;
-          }
-        }
-      }
-    }
-  }
-}
-
-/* Section Logos */
-.logos-section {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 2rem 1rem;
-  text-align: center;
-  .logos-divider {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 1rem 0;
-  }
-  .aviv-group {
-    margin-bottom: 1rem;
-    img {
-      max-width: 200px;
-      height: auto;
-    }
-  }
-  .logos-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    img {
-      max-width: 120px;
-      height: auto;
-    }
-  }
-}
-
-/* Section Footer final */
-.final-section {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1rem;
-  border-top: 1px solid #ddd;
-  .final-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .final-left {
-    display: flex;
-    flex-direction: column;
-  }
-  .final-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    padding: 0;
-    margin: 0 0 0.5rem 0;
-    li a {
-      text-decoration: none;
-      color: #1e88e5;
-      font-size: 1.125rem;
-      transition: color 0.3s;
-      &:hover {
-        color: #1565c0;
-      }
-    }
-  }
-  .final-copy {
-    font-size: 0.75rem;
-    color: #666;
-    margin: 0;
-  }
-  .final-right {
-    display: flex;
-    gap: 1rem;
-    a {
-      display: inline-block;
+      
       img {
-        width: 30px;
-        height: auto;
+        max-width: 60%;
+        max-height: 60%;
+        object-fit: contain;
       }
     }
+    
   }
 }
+
 
 /* Responsivité */
 @media (max-width: 768px) {

@@ -1,7 +1,191 @@
-.footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
+/* Section onglets et sous-liens */
+.tabs-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  .tabs-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .tab-item {
+    flex: 1;
+    min-width: 180px;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #eee;
+    border-radius: 30px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    &:hover {
+      background-color: rgba(30,136,229,0.2);
+    }
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  .tabs-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
+  }
+  .sub-links-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .sub-links {
+    display: flex;
+    gap: 10rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li a {
+      color: #333;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+  }
+}
+
+/* Section Footer links */
+.footer-links-section {
+  max-width: 1600px; /* largeur augmentée */
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+    
+    h3 {
+      font-size: 1rem; /* taille réduite (au lieu de 1.25rem) */
+      color: #333;
+      margin-bottom: 0.5rem; /* marge réduite */
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 0.3rem; /* espacement réduit */
+        a {
+          text-decoration: none;
+          color: #333;
+          font-size: 0.9rem; /* taille réduite */
+          transition: color 0.3s;
+          &:hover {
+            color: #333;         // garder la même couleur
+            text-decoration: underline; // ajouter le soulignement au survol
+          }
+        }
+      }
+    }
+    
+    /* Pour la colonne Apps */
+    &.apps-column,
+    ul.app-links {
+      li {
+        a {
+          img {
+            max-width: 140px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Section Logos */
+.logos-section {
+  max-width: 1400px; /* largeur augmentée */
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  
+  .logos-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
   }
   
+  .aviv-group {
+    margin-bottom: 1rem;
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
+  
+  .logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem; /* espace légèrement réduit */
+    img {
+      max-width: 100px; /* taille réduite pour les logos (au lieu de 120px) */
+      height: auto;
+    }
+  }
+}
+
+/* Section Footer final */
+.final-section {
+  max-width: 1900px; /* largeur augmentée */
+  margin: 1rem auto;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  
+  .final-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .final-left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .final-links {
+    display: flex;
+    gap: 1rem; 
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+    li a {
+      text-decoration: none;
+      color: #333;
+      font-size: 1rem; 
+      transition: text-decoration 0.3s, color 0.3s;
+      &:hover {
+        color: #333;
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  .final-copy {
+    font-size: 0.65rem; /* taille réduite */
+    color: #666;
+    margin: 0;
+  }
+  
+  .final-right {
+    display: flex;
+    gap: 1rem;
+    a {
+      display: inline-block;
+      img {
+        width: 25px; /* taille réduite */
+        height: auto;
+      }
+    }
+  }
+}
