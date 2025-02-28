@@ -14,7 +14,7 @@
     justify-content: space-between;
   }
 
-  /* Partie gauche du header : logo et menu */
+  /* Partie gauche : logo et menu */
   .header-left {
     display: flex;
     align-items: center;
@@ -33,7 +33,10 @@
     display: flex;
     gap: 1.5rem;
     margin-left: 1rem; // espace entre le logo et le menu
-    a {
+
+    // Appliquer le style aux liens standards et au dropdown
+    a,
+    .dropdown {
       text-decoration: none;
       color: #333;
       font-size: 1rem;
@@ -51,10 +54,59 @@
         color: #333;
       }
     }
-  }
-  
 
-  /* Partie droite du header : bouton et icône cœur */
+    /* Dropdown pour le lien "Vendre" */
+    .dropdown {
+      position: relative;
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;         
+        left: 0;
+        width: 130vw;      // Prend toute la largeur du viewport
+        margin-left: calc(50% - 50vw); // Centre le menu par rapport au viewport
+        background-color: #fff;
+        padding: 1rem 2rem;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: none;     // Masqué par défaut
+        z-index: 1000;     // Au-dessus des autres éléments
+        text-align: left;  // Texte aligné à gauche
+
+        h3 {
+          font-size: 1.25rem;
+          color: #333;
+          margin: 0 0 0.5rem 0;
+        }
+
+        ul {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          li {
+            margin-bottom: 0.5rem;
+            a {
+              text-decoration: none;
+              color: #333;
+              font-size: 1rem;
+              transition: color 0.3s, text-decoration 0.3s;
+              &:hover {
+                color: #1565c0;
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+
+      // Affiche le dropdown menu au survol
+      &:hover .dropdown-menu {
+        display: block;
+      }
+    }
+  }
+
+  /* Partie droite : bouton "Estimer mon bien" et icône cœur */
   .header-right {
     display: flex;
     align-items: center;

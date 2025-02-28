@@ -60,12 +60,12 @@
         <button class="info-button">Trouver un pro</button>
       </div>
       <div class="info-image">
-        <img src="assets/agent1.jpg" alt="Trouver un agent">
+        <img src="assets/agent-immobilier.png" alt="Trouver un agent">
       </div>
     </div>
     <div class="info-card courtier-card">
       <div class="info-image">
-        <img src="assets/courtier.jpg" alt="Wily courtier">
+        <img src="assets/wilycourtier.webp" alt="Wily courtier">
       </div>
       <div class="info-content">
         <h2>Wily, le courtier de votre future assurance de prêt</h2>
@@ -78,16 +78,17 @@
   </section>
 
   <!-- Section des biens -->
-  <section class="properties-section">
-    <h2>Nos meilleurs partenaires pour vos projets</h2>
-    <div class="property-grid">
-      <div class="property-card" *ngFor="let property of properties; trackBy: trackProperty">
-        <img [src]="property.image" [alt]="property.title" class="property-image">
-        <h3 class="property-title">{{ property.title }}</h3>
-        <p class="property-price">{{ property.price }} €</p>
-      </div>
+<section class="properties-section">
+  <h2>Nos meilleurs partenaires pour vos projets</h2>
+  <div class="property-grid">
+    <div class="property-card" *ngFor="let property of properties; trackBy: trackProperty">
+      <img [src]="property.image" [alt]="property.title" class="property-image">
+      <h3 class="property-title">{{ property.title }}</h3>
+      <button class="property-button">{{ property.buttonLabel }}</button>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- Section Télécharger l'application -->
   <section class="download-section">

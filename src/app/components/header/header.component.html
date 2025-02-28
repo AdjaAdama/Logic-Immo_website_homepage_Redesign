@@ -10,7 +10,18 @@
       <nav class="nav-menu">
         <a routerLink="/acheter" routerLinkActive="active">Acheter</a>
         <a routerLink="/louer" routerLinkActive="active">Louer</a>
-        <a routerLink="/vendre" routerLinkActive="active">Vendre</a>
+        <!-- Lien Vendre avec sous-menu -->
+        <div class="dropdown">
+          <a routerLink="/vendre" routerLinkActive="active" class="dropdown-toggle">Vendre</a>
+          <div class="dropdown-menu">
+            <h3>Vous cherchez à vendre...</h3>
+            <ul>
+              <li><a href="#">Estimer votre bien</a></li>
+              <li><a href="#">Vendre votre bien</a></li>
+              <li><a href="#">Prix de l'immobilier</a></li>
+            </ul>
+          </div>
+        </div>        
         <a routerLink="/neuf" routerLinkActive="active">Neuf</a>
         <a routerLink="/luxe" routerLinkActive="active">Luxe</a>
         <a routerLink="/annuaire" routerLinkActive="active">Annuaire</a>

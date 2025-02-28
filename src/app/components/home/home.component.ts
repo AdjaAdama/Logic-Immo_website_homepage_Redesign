@@ -18,12 +18,13 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class HomeComponent {
   properties = [
-    { title: 'Decouvrez maisons du monde', price: '750 000', image: '../../assets/maisonsdumonde.jpg' },
-    { title: 'Realisez vos projets avec Sofinco', price: '1 200 000', image: '../../assets/sofinco2.png' },
-    { title: 'Redecouvrez votre espace de vie', price: '500 000', image: '../../assets/velux.png' }
+    { title: 'Decouvrez maisons du monde', buttonLabel: 'Decouvrir', image: '../../assets/maisonsdumonde.jpg' },
+    { title: 'Realisez vos projets avec Sofinco', buttonLabel: 'Simuler voter projet', image: '../../assets/sofinco2.png' },
+    { title: 'Redecouvrez votre espace de vie', buttonLabel: 'Decouvrir', image: '../../assets/velux.png' }
   ];
 
   trackProperty(index: number, property: any): number {
     return index;
   }
+
 }
