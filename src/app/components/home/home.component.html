@@ -77,17 +77,19 @@
     </div>
   </section>
 
-  <!-- Section des biens -->
+<!-- Section des biens -->
 <section class="properties-section">
   <h2>Nos meilleurs partenaires pour vos projets</h2>
   <div class="property-grid">
     <div class="property-card" *ngFor="let property of properties; trackBy: trackProperty">
       <img [src]="property.image" [alt]="property.title" class="property-image">
       <h3 class="property-title">{{ property.title }}</h3>
+      <p class="property-description">{{ property.description }}</p>
       <button class="property-button">{{ property.buttonLabel }}</button>
     </div>
   </div>
 </section>
+
 
 
   <!-- Section Télécharger l'application -->

@@ -352,7 +352,7 @@ img {
   img {
     max-width: 100%;
     height: auto;
-    border-radius: 20px;
+    border-radius: 20px; 
   }
 }
 
@@ -416,6 +416,17 @@ img {
   &:hover {
     background-color: #f0f0f0;
   }
+
+  .property-description {
+    font-size: 0.5rem;       
+    color: #555;
+    color: #555;
+    height: 1rem;
+    overflow: hidden;   
+    margin: 0.5rem 0;      // Espacement vertical pour séparer du titre et du bouton
+  }
+  
+
 }
 
 
